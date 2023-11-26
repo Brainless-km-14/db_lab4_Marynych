@@ -1,0 +1,26 @@
+CREATE TABLE Champion
+(
+  ID INT NOT NULL,
+  Name VARCHAR(30) NOT NULL,
+  represented_country VARCHAR(30) NOT NULL,
+  PRIMARY KEY (ID)
+);
+
+CREATE TABLE Venue
+(
+  City_id INT NOT NULL,
+  City VARCHAR(30) NOT NULL,
+  Country VARCHAR(30) NOT NULL,
+  PRIMARY KEY (City_id)
+);
+
+CREATE TABLE Year
+(
+  Year INT NOT NULL,
+  Award$ INT NOT NULL,
+  City_id INT NOT NULL,
+  ID INT NOT NULL,
+  PRIMARY KEY (Year),
+  FOREIGN KEY (City_id) REFERENCES Venue(City_id),
+  FOREIGN KEY (ID) REFERENCES Champion(ID)
+);
